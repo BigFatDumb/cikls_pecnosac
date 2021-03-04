@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>3. patstāvīgais darbs</title>
+		<meta charset="utf8"/>
+		<style>
+body {
+  background-color: LemonChiffon;
+  color: DarkRed;
+  font-family: "Verdana";}
+		</style>
+	</head>
+	<body>
+<h2>Bumbiņas</h2>
+<p> <canvas id="pamatne" width="400" height="300"
+          style="background-color: BurlyWood">
+</canvas> </p>
+<p id = "izvade"></p>
+		<script>
+var p = pamatne.getContext("2d");
+var krasa; // 0 - balta, 1 - melna bumbiņa
+var x = 60; // pirmās bumbiņas x;
+var y = 230; // pirmās bumbiņas y;
+var r = 20; // bumbiņas radiuss
+b = 0; // balto bumbiņu skaits
+m = 0; // melno bumbiņu skaits
+trauks();
+do {
+  krasa = Math.floor(Math.random() * 2);
+  if (krasa == 1) {
+    p.fillStyle = "black";
+    m++;
+  } else {
+    p.fillStyle = "white";
+    b++;    
+  }
+  bumba();
+  x = x + 2 * r;
+  if (x > 350) {
+    x = 60;
+    y = y - 2 * r;
+  }
+}
+while (b < 10 && m < 10);
+
+function bumba() {
+  p.beginPath();
+  p.arc(x, y, r, 0, 2 * Math.PI);
+  p.closePath();
+  p.fill();
+}
+function trauks() {
+  p.strokeStyle = "green";
+  p.lineWidth = 5;
+  p.beginPath();
+  p.moveTo(37, 50);
+  p.lineTo(37, 253);
+  p.lineTo(363, 250);
+  p.lineTo(363, 50);
+  p.stroke();
+}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>2. patstāvīgais darbs</title>
+		<meta charset="utf8"/>
+		<style>
+body {
+  background-color: AliceBlue;
+  color: ForestGreen;
+  font-family: "Verdana";}
+		</style>
+	</head>
+	<body>
+<h2>Eglīte</h2>
+<p> <canvas id="pamatne" width="200" height="300"
+          >
+</canvas> </p>
+<p id = "izvade"></p>
+		<script>
+var p = pamatne.getContext("2d");
+var y = Math.floor(Math.random() * 200) + 5;
+var x = pamatne.width / 2;
+a = 10;
+n = 0;
+p.fillStyle = "ForestGreen";
+izvade.innerHTML = y;
+
+do {
+  posms(); 
+  y = y + a / 2;
+  a = a + 10;
+  n++;
+}
+while (y < pamatne.height - 50 && n < 8);
+function posms() {
+  p.beginPath();
+  p.moveTo(x, y);
+  p.lineTo(x + a * Math.sin(Math.PI / 3), y + a);
+  p.lineTo(x - a * Math.sin(Math.PI / 3), y + a);
+  p.closePath();
+  p.fill();
+}
+		</script>
+	</body>
+</html>

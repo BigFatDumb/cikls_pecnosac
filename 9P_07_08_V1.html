@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>1. vingrinājums</title>
+		<meta charset="utf8"/>
+		<style>
+body {
+  background-color: lightgray;
+  color: #000066;
+  font-family: "Verdana";}
+		</style>
+	</head>
+	<body>
+<h2> Riņķi</h2>
+<p> <canvas id="pamatne" width="500" height="500">
+</canvas> </p>
+<p id = "izvade"></p>
+		<script>
+var p = pamatne.getContext("2d");
+var x = pamatne.width / 2;
+var y = pamatne.height / 2;
+var r = x - 10;
+if (x > y){
+  r = y - 10;
+}
+var tonis = 0;
+
+do {
+  p.fillStyle = "hsl(" + tonis + ", 100%, 50%)";
+  aplis();
+  r = r - 20;
+  tonis = tonis + 20;
+}
+while (r > 5);
+
+function aplis() {
+  p.beginPath();
+  p.arc(x, y, r, 0, 2 * Math.PI);
+  p.fill();
+  p.stroke();
+}
+		</script>
+	</body>
+</html>

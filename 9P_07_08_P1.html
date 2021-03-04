@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>1. patstāvīgais darbs</title>
+		<meta charset="utf8"/>
+		<style>
+body {
+  background-color: lightgray;
+  color: #000066;
+  font-family: "Verdana";}
+		</style>
+	</head>
+	<body>
+<h2>Stari</h2>
+<p> <canvas id="pamatne" width="600" height="400"
+    style="border:1px solid black;
+          background-color: #00004d;">
+</canvas> </p>
+<p id = "izvade"></p>
+		<script>
+var p = pamatne.getContext("2d");
+var vidusX = pamatne.width / 2;
+var vidusY = pamatne.height / 2;
+p.lineWidth = 2;
+solis = 15;
+p.strokeStyle = "yellow";
+var x = 0;
+do {
+  p.beginPath();
+  p.moveTo(x, 0);
+  p.lineTo(vidusX, vidusY);
+  p.stroke();
+  x = x + solis;
+}
+while (x <= vidusX);
+p.strokeStyle = "cyan";
+var x = pamatne.width;
+do {
+  p.beginPath();
+  p.moveTo(x, pamatne.height);
+  p.lineTo(vidusX, vidusY);
+  p.stroke();
+  x = x - solis;
+}
+while (x >= vidusX);
+		</script>
+	</body>
+</html>
